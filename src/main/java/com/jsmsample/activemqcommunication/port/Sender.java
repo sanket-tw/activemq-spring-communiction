@@ -16,6 +16,6 @@ public class Sender {
   public void sendMessage() {
     log.info("sending a test message from sender to receiver");
     jmsTemplate.convertAndSend("test-topic",
-        new Payload("sanket", Payload.Type.NEW, 20));
+        Payload.builder().age(20).name("sanket").type(Payload.Type.NEW).build());
   }
 }
